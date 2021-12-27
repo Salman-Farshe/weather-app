@@ -14,7 +14,7 @@ html, body{
 // header section
 .header{
     max-width: 100%;
-    min-height: 5rem;
+    min-height: 5vh;
     background-color: aquamarine;
     font-size: 2rem;
 
@@ -40,5 +40,17 @@ html, body{
         justify-self: end;
         padding-right: 7rem;
         letter-spacing: 1rem;
+    }
+}
+
+// footer section
+.footer{
+    max-width: 100%;
+    min-height: 1vh;
+    background-color: #e6e6e6;
+    text-align: center;
+    p{
+        font-size: 1.2rem;
+        margin-bottom: 0;
     }
 }
