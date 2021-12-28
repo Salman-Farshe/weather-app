@@ -16,19 +16,33 @@ const express = require('express'),
     app.use(express.static(path.join(__dirname, 'img'))) // serve the another static directory
 
 app.get('/', (req, res) => {
+    const loc = req.query.location; // get from the search form
     res.render('index')
 
-    // geoCode
-    geoCode('Dhaka', (error, data) => {
-        console.log(data)
-        
-        //foreCast
-        foreCast(data.latitude, data.longitude, (error, info) => {
-            console.log(info)
-        })
-    })
+    if(!loc){
+        return res.render('404')
+    }
 
+    // geoCode
+    geoCode(loc, (error, {location, latitude, longitude}) => {
+        if(error){
+            return res.render('404')
+        } else{
+            //foreCast
+            foreCast(latitude, longitude, (error, info) => {
+                if(error){
+                    return res.render('404')
+                } else{
+                    console.log(location) // geoCode
+                    console.log(latitude)
+                    console.log(longitude)
+                    console.log(info) // foreCast
+                }
+            })
+        }  
+    })
 })
+
 
 app.get('*', (req, res) => {
     res.render('404')
