@@ -1,3 +1,6 @@
+const geoCode = require('./src/geoCode')
+const foreCast = require('./src/foreCast')
+
 const express = require('express'),
     app = express(),
     port = 3000,
@@ -14,6 +17,21 @@ const express = require('express'),
 
 app.get('/', (req, res) => {
     res.render('index')
+
+    // geoCode
+    geoCode('Dhaka', (error, data) => {
+        console.log(data)
+        
+        //foreCast
+        foreCast(data.latitude, data.longitude, (error, info) => {
+            console.log(info)
+        })
+    })
+
+})
+
+app.get('*', (req, res) => {
+    res.render('404')
 })
 
 app.listen(port, () => {
