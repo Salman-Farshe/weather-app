@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Pushster&display=swap');
 
 *, *::before, *::after{
-    margin: 0;
-    padding: 0;
+    margin: 0rem;
+    padding: 0rem;
     box-sizing: border-box;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 html, body{
@@ -14,6 +15,15 @@ html, body{
 body{
     display: grid;
     grid-template-rows: 8% 87% 5%;
+
+    @media only screen and (max-height: 900px){
+        grid-template-rows: 10% 80% 10%;
+    }
+}
+
+a{
+    list-style: none;
+    text-decoration: none;
 }
 
 // header section
@@ -29,22 +39,55 @@ body{
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: 1600px){
+        grid-template-columns: 1fr 2fr 5fr;
+    }
+    @media only screen and (max-width: 1200px){
+        grid-template-columns: 1fr 2fr 5fr;
+    }
+    @media only screen and (max-width: 800px){
+        grid-template-columns: 1fr 2fr 2fr;
+        font-size: 1.5rem;
+    }
+    @media only screen and (max-width: 720px){
+        grid-template-columns: auto auto;
+        font-size: 1.3rem;
+    }
+
     &__logo{
         justify-self: end;
         & img{
             display: block;
             width: 5rem;
             height: 5rem;
+
+            @media only screen and (max-width: 800px){
+                width: 3rem;
+                height: 3rem;
+            }
         }
     }
     &__title{
         justify-self: start;
         padding-left: 2rem;
+        @media only screen and (max-width: 800px){
+            padding-left: 1rem;
+        }
     }
     &__text{
         justify-self: end;
         padding-right: 7rem;
         letter-spacing: 1rem;
+
+        @media only screen and (max-width: 1200px){
+            padding-right: 1rem;
+        }
+        @media only screen and (max-width: 1000px){
+            letter-spacing: 0.2rem;
+        }
+        @media only screen and (max-width: 720px){
+            display: none;
+        }
     }
 }
 
@@ -55,20 +98,39 @@ body{
     min-height: 87vh;
 
     display: grid;
-    grid-template-columns: 75% 25%;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+
+    @media only screen and (max-width: 1440px){
+        grid-template-columns: 3fr 1.3fr;
+    }
+    @media only screen and (max-width: 1200px){
+        grid-template-columns: 3fr 1.5fr;
+    }
+    @media only screen and (max-width: 1000px){
+        grid-template-columns: 3fr 1.5fr;
+    }
+    @media only screen and (max-width: 800px){
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+    @media only screen and (max-width: 900px) and (max-height: 900px){
+        grid-template-rows: auto auto;
+        grid-template-columns: auto;
+    }
 
     &__logo{
         max-width: 100%;
-        min-height: 100%;
-        background-image: url('../weather.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        min-height: auto;
+        background: url('../weather.png') no-repeat center center/contain;
     }
 
     &__output{
+        max-width: 100%;
+        min-height: auto;
         font-size: 1.2rem;
         font-family: Arial, Helvetica, sans-serif;
+        padding: 1rem;
         & form{
             display: flex;
             flex-direction: column;
@@ -94,11 +156,21 @@ body{
         & .result{
             & p{
                 font-size: 1.2rem;
+                margin-bottom: 0rem;
+
+                @media only screen and (max-height: 700){
+                    font-size: 1rem;
+                }
                 
-                & .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9{
+                .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9{
                     letter-spacing: 0.2rem;
                     font-weight: bold;
                     font-size: 1rem;
+                    @media only screen and (max-height: 700){
+                        font-size: 1rem;
+                        letter-spacing: 0.1rem;
+                        font-weight: normal;
+                    }
                 }
             }
         }
@@ -114,6 +186,12 @@ body{
     background-color: #e6e6e6;
     text-align: center;
     padding: 0.3rem 0rem;
+    @media only screen and (max-height: 700px){
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+        font-weight: bold;
+        padding: 0.2rem 0rem;
+    }
     & p{
         letter-spacing: 0.2rem;
     }

@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Pushster&display=swap");
 *, *::before, *::after {
-  margin: 0;
-  padding: 0;
+  margin: 0rem;
+  padding: 0rem;
   box-sizing: border-box;
-  overflow: hidden; }
+  overflow: hidden;
+  scroll-behavior: smooth; }
 
 html, body {
   font-family: 'Pushster', cursive; }
@@ -11,6 +12,13 @@ html, body {
 body {
   display: grid;
   grid-template-rows: 8% 87% 5%; }
+  @media only screen and (max-height: 900px) {
+    body {
+      grid-template-rows: 10% 80% 10%; } }
+
+a {
+  list-style: none;
+  text-decoration: none; }
 
 .header {
   max-width: 100%;
@@ -22,35 +30,83 @@ body {
   justify-items: center;
   align-items: center;
   justify-content: center; }
+  @media only screen and (max-width: 1600px) {
+    .header {
+      grid-template-columns: 1fr 2fr 5fr; } }
+  @media only screen and (max-width: 1200px) {
+    .header {
+      grid-template-columns: 1fr 2fr 5fr; } }
+  @media only screen and (max-width: 800px) {
+    .header {
+      grid-template-columns: 1fr 2fr 2fr;
+      font-size: 1.5rem; } }
+  @media only screen and (max-width: 720px) {
+    .header {
+      grid-template-columns: auto auto;
+      font-size: 1.3rem; } }
   .header__logo {
     justify-self: end; }
     .header__logo img {
       display: block;
       width: 5rem;
       height: 5rem; }
+      @media only screen and (max-width: 800px) {
+        .header__logo img {
+          width: 3rem;
+          height: 3rem; } }
   .header__title {
     justify-self: start;
     padding-left: 2rem; }
+    @media only screen and (max-width: 800px) {
+      .header__title {
+        padding-left: 1rem; } }
   .header__text {
     justify-self: end;
     padding-right: 7rem;
     letter-spacing: 1rem; }
+    @media only screen and (max-width: 1200px) {
+      .header__text {
+        padding-right: 1rem; } }
+    @media only screen and (max-width: 1000px) {
+      .header__text {
+        letter-spacing: 0.2rem; } }
+    @media only screen and (max-width: 720px) {
+      .header__text {
+        display: none; } }
 
 .container {
   max-width: 100%;
   min-height: 87vh;
   display: grid;
-  grid-template-columns: 75% 25%; }
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto; }
+  @media only screen and (max-width: 1440px) {
+    .container {
+      grid-template-columns: 3fr 1.3fr; } }
+  @media only screen and (max-width: 1200px) {
+    .container {
+      grid-template-columns: 3fr 1.5fr; } }
+  @media only screen and (max-width: 1000px) {
+    .container {
+      grid-template-columns: 3fr 1.5fr; } }
+  @media only screen and (max-width: 800px) {
+    .container {
+      grid-template-columns: auto;
+      grid-template-rows: auto auto; } }
+  @media only screen and (max-width: 900px) and (max-height: 900px) {
+    .container {
+      grid-template-rows: auto auto;
+      grid-template-columns: auto; } }
   .container__logo {
     max-width: 100%;
-    min-height: 100%;
-    background-image: url("../weather.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; }
+    min-height: auto;
+    background: url("../weather.png") no-repeat center center/contain; }
   .container__output {
+    max-width: 100%;
+    min-height: auto;
     font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif; }
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem; }
     .container__output form {
       display: flex;
       flex-direction: column; }
@@ -70,11 +126,20 @@ body {
         text-align: center;
         margin: 1rem auto; }
     .container__output .result p {
-      font-size: 1.2rem; }
+      font-size: 1.2rem;
+      margin-bottom: 0rem; }
+      @media only screen and (max-height: 700) {
+        .container__output .result p {
+          font-size: 1rem; } }
       .container__output .result p .p1, .container__output .result p .p2, .container__output .result p .p3, .container__output .result p .p4, .container__output .result p .p5, .container__output .result p .p6, .container__output .result p .p7, .container__output .result p .p8, .container__output .result p .p9 {
         letter-spacing: 0.2rem;
         font-weight: bold;
         font-size: 1rem; }
+        @media only screen and (max-height: 700) {
+          .container__output .result p .p1, .container__output .result p .p2, .container__output .result p .p3, .container__output .result p .p4, .container__output .result p .p5, .container__output .result p .p6, .container__output .result p .p7, .container__output .result p .p8, .container__output .result p .p9 {
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+            font-weight: normal; } }
 
 .footer {
   max-width: 100%;
@@ -83,5 +148,11 @@ body {
   background-color: #e6e6e6;
   text-align: center;
   padding: 0.3rem 0rem; }
+  @media only screen and (max-height: 700px) {
+    .footer {
+      font-size: 1rem;
+      letter-spacing: 0.1rem;
+      font-weight: bold;
+      padding: 0.2rem 0rem; } }
   .footer p {
     letter-spacing: 0.2rem; }

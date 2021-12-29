@@ -1,11 +1,11 @@
 <!-- export header file from the partials directory -->
 <%- include('partials/header') %>
 
-<div class="container">
-    <div class="container__logo">
+<div class="container row">
+    <div class="container__logo col">
         <!-- image section -->
     </div>
-    <div class="container__output">
+    <div class="container__output col">
 
         <form action="/weather" method="GET">
             <input type="text" name="location" id="location" placeholder="Search Location" required>
