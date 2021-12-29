@@ -69,6 +69,12 @@ body {
         border-radius: 0.5rem;
         text-align: center;
         margin: 1rem auto; }
+    .container__output .result p {
+      font-size: 1.2rem; }
+      .container__output .result p .p1, .container__output .result p .p2, .container__output .result p .p3, .container__output .result p .p4, .container__output .result p .p5, .container__output .result p .p6, .container__output .result p .p7, .container__output .result p .p8, .container__output .result p .p9 {
+        letter-spacing: 0.2rem;
+        font-weight: bold;
+        font-size: 1rem; }
 
 .footer {
   max-width: 100%;

@@ -6,21 +6,12 @@
         <!-- image section -->
     </div>
     <div class="container__output">
-        <form>
-            <input type="text" name="location" id="location" placeholder="Search Location">
+
+        <form action="/weather" method="GET">
+            <input type="text" name="location" id="location" placeholder="Search Location" required>
             <button type="submit">Search</button>
         </form>
-        <div class="result">
-            <p class="p1">Location: </p>
-            <p class="p2">Latitude: </p>
-            <p class="p3">Longitude: </p>
-            <p class="p4">Sun Rise: </p>
-            <p class="p5">Sun Set: </p>
-            <p class="p6">Condition: </p>
-            <p class="p7">Temperature: </p>
-            <p class="p8">Feels Like: </p>
-            <p class="p9">Summary: </p>
-        </div>
+        
     </div>
 </div>
 

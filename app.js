@@ -16,27 +16,37 @@ const express = require('express'),
     app.use(express.static(path.join(__dirname, 'img'))) // serve the another static directory
 
 app.get('/', (req, res) => {
-    const loc = req.query.location; // get from the search form
     res.render('index')
+})
 
+app.get('/weather', (req, res) => {
+    const loc = req.query.location; // get from the search form
+    
     if(!loc){
-        return res.render('404')
+        console.log('Unable to Connect. Please try again later...')
     }
-
+    
     // geoCode
-    geoCode(loc, (error, {location, latitude, longitude}) => {
+    geoCode(loc, (error, {location, latitude, longitude} = {}) => {
         if(error){
-            return res.render('404')
+            console.log('Unable to Connect. Please try again later...')
         } else{
             //foreCast
             foreCast(latitude, longitude, (error, info) => {
                 if(error){
-                    return res.render('404')
+                    console.log('Unable to Connect. Please try again later...')
                 } else{
-                    console.log(location) // geoCode
-                    console.log(latitude)
-                    console.log(longitude)
-                    console.log(info) // foreCast
+                    res.render('weather', {
+                        location: location,
+                        latitude: latitude,
+                        longitude: longitude,
+                        temperature: info.temperature,
+                        sunRise: info.sun_rise,
+                        sunSet: info.sun_set,
+                        condition: info.condition,
+                        feels: info.feels_like,
+                        time: info.time_zone
+                    }) 
                 }
             })
         }  
@@ -51,17 +61,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('server starting')
 })
-
-/*
-
-// changes views directory & rename it....
-const viewsPath = path.join(__dirname, '../templates/views')  // views path changes
-app.set('views', viewsPath)
-
-
-const publicDirectory = path.join(__dirname, '../public')
-// customize server, serve out that folder
-// setup static directory
-app.use(express.static(publicDirectory))
-
-*/

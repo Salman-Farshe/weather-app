@@ -1,0 +1,31 @@
+<!-- export header file from the partials directory -->
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="container__logo">
+        <!-- image section -->
+    </div>
+    <div class="container__output">
+
+        <form action="/weather" method="GET">
+            <input type="text" name="location" id="location" placeholder="Search Location" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="result">
+            <p>Location: <span class="p1"> <%=location%> </span> </p>
+            <p>Temperature: <span class="p7"> <%=temperature%> </span> &deg;C</p>
+            <p>Sun Rise: <span class="p4"> <%=sunRise%> </span> </p>
+            <p>Sun Set: <span class="p5"> <%=sunSet%> </span> </p>
+            <p>Condition: <span class="p6"> <%=condition%> </span> </p>
+            <p>Feels Like: <span class="p8"> <%=feels%> </span> &deg;C</p>
+            <p>Latitude: <span class="p2"> <%=latitude%> </span> </p>
+            <p>Longitude: <span class="p3"> <%=longitude%> </span> </p>
+            <p>Time Zone: <span class="p9"> <%=time%> </span> </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- export footer file from the partials directory -->
+<%- include('partials/footer') %>

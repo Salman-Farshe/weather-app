@@ -12,8 +12,8 @@ const foreCast = (latitude, longitude, callback) => {
                 time_zone: body.timezone,
                 sun_rise: body.currentConditions.sunrise,
                 sun_set: body.currentConditions.sunset,
-                temperature: body.currentConditions.temp +' Degree Celcius',
-                feels_like: body.currentConditions.feelslike +' Degree Celcius',
+                temperature: body.currentConditions.temp,
+                feels_like: body.currentConditions.feelslike,
                 condition: body.currentConditions.conditions
             })
         }
