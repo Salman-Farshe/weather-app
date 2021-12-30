@@ -3,7 +3,7 @@ const foreCast = require('./src/foreCast')
 
 const express = require('express'),
     app = express(),
-    port = 3000,
+    port = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
     favicon = require('serve-favicon'),
     path = require('path');
